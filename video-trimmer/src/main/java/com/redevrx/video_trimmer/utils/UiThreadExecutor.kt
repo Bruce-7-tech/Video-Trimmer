@@ -38,14 +38,14 @@ object UiThreadExecutor {
                 token = Token(id)
                 TOKENS[id] = token
             }
-            token.runnablesCount++
+            token.runnableCount++
             return token
         }
     }
 
     private fun decrementToken(token: Token) {
         synchronized(TOKENS) {
-            if (--token.runnablesCount == 0) {
+            if (--token.runnableCount == 0) {
                 val id = token.id
                 val old = TOKENS.remove(id)
                 if (old != token) {
@@ -70,7 +70,7 @@ object UiThreadExecutor {
     }
 
     private class Token(internal val id: String) {
-        internal var runnablesCount = 0
+        internal var runnableCount = 0
     }
 
 }

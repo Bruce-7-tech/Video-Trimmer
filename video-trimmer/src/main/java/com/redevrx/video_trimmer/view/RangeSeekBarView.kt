@@ -14,20 +14,20 @@ import com.redevrx.video_trimmer.event.OnRangeSeekBarEvent
 
 class RangeSeekBarView @JvmOverloads constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int = 0) : View(context, attrs, defStyleAttr) {
 
-    private var mHeightTimeLine = 0
+    private var heightTimeLine = 0
     lateinit var thumbs: List<Thumb>
-    private var mListeners: MutableList<OnRangeSeekBarEvent>? = null
-    private var mMaxWidth = 0f
-    private var mThumbWidth = 0f
-    private var mThumbHeight = 0f
-    private var mViewWidth = 0
-    private var mPixelRangeMin = 0f
-    private var mPixelRangeMax = 0f
-    private var mScaleRangeMax = 0f
-    private var mFirstRun = false
+    private var listeners: MutableList<OnRangeSeekBarEvent>? = null
+    private var maxWidth = 0f
+    private var thumbWidth = 0f
+    private var thumbHeight = 0f
+    private var viewWidth = 0
+    private var pixelRangeMin = 0f
+    private var pixelRangeMax = 0f
+    private var scaleRangeMax = 0f
+    private var firstRun = false
 
-    private val mShadow = Paint()
-    private val mLine = Paint()
+    private val shadow = Paint()
+    private val line = Paint()
 
     private var currentThumb = 0
 
@@ -37,30 +37,30 @@ class RangeSeekBarView @JvmOverloads constructor(context: Context, attrs: Attrib
 
     private fun init() {
         thumbs = Thumb.initThumbs(resources)
-        mThumbWidth = Thumb.getWidthBitmap(thumbs).toFloat()
-        mThumbHeight = Thumb.getHeightBitmap(thumbs).toFloat()
+        thumbWidth = Thumb.getWidthBitmap(thumbs).toFloat()
+        thumbHeight = Thumb.getHeightBitmap(thumbs).toFloat()
 
-        mScaleRangeMax = 100f
-        mHeightTimeLine = context.resources.getDimensionPixelOffset(R.dimen.frames_video_height)
+        scaleRangeMax = 100f
+        heightTimeLine = context.resources.getDimensionPixelOffset(R.dimen.frames_video_height)
 
         isFocusable = true
         isFocusableInTouchMode = true
 
-        mFirstRun = true
+        firstRun = true
 
         val shadowColor = context.getColor( R.color.shadow_color)
-        mShadow.isAntiAlias = true
-        mShadow.color = shadowColor
-        mShadow.alpha = 177
+        shadow.isAntiAlias = true
+        shadow.color = shadowColor
+        shadow.alpha = 177
 
         val lineColor = context.getColor( R.color.line_color)
-        mLine.isAntiAlias = true
-        mLine.color = lineColor
-        mLine.alpha = 200
+        line.isAntiAlias = true
+        line.color = lineColor
+        line.alpha = 200
     }
 
     fun initMaxWidth() {
-        mMaxWidth = thumbs[1].pos - thumbs[0].pos
+        maxWidth = thumbs[1].pos - thumbs[0].pos
         onSeekStop(this, 0, thumbs[0].value)
         onSeekStop(this, 1, thumbs[1].value)
     }
@@ -69,24 +69,24 @@ class RangeSeekBarView @JvmOverloads constructor(context: Context, attrs: Attrib
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
         val minW = paddingLeft + paddingRight + suggestedMinimumWidth
-        mViewWidth = resolveSizeAndState(minW, widthMeasureSpec, 1)
+        viewWidth = resolveSizeAndState(minW, widthMeasureSpec, 1)
 
-        val minH = paddingBottom + paddingTop + mThumbHeight.toInt() + mHeightTimeLine
+        val minH = paddingBottom + paddingTop + thumbHeight.toInt() + heightTimeLine
         val viewHeight = resolveSizeAndState(minH, heightMeasureSpec, 1)
 
-        setMeasuredDimension(mViewWidth, viewHeight)
+        setMeasuredDimension(viewWidth, viewHeight)
 
-        mPixelRangeMin = 0f
-        mPixelRangeMax = mViewWidth - mThumbWidth
+        pixelRangeMin = 0f
+        pixelRangeMax = viewWidth - thumbWidth
 
-        if (mFirstRun) {
+        if (firstRun) {
             for (i in thumbs.indices) {
                 val th = thumbs[i]
-                th.value = mScaleRangeMax * i
-                th.pos = mPixelRangeMax * i
+                th.value = scaleRangeMax * i
+                th.pos = pixelRangeMax * i
             }
             onCreate(this, currentThumb, getThumbValue(currentThumb))
-            mFirstRun = false
+            firstRun = false
         }
     }
 
@@ -126,7 +126,7 @@ class RangeSeekBarView @JvmOverloads constructor(context: Context, attrs: Attrib
                 if (currentThumb == 0) {
                     when {
                         newX + mThumb.widthBitmap >= mThumb2.pos -> mThumb.pos = mThumb2.pos - mThumb.widthBitmap
-                        newX <= mPixelRangeMin -> mThumb.pos = mPixelRangeMin
+                        newX <= pixelRangeMin -> mThumb.pos = pixelRangeMin
                         else -> {
                             checkPositionThumb(mThumb, mThumb2, dx, true)
                             mThumb.pos = mThumb.pos + dx
@@ -137,7 +137,7 @@ class RangeSeekBarView @JvmOverloads constructor(context: Context, attrs: Attrib
                 } else {
                     when {
                         newX <= mThumb2.pos + mThumb2.widthBitmap -> mThumb.pos = mThumb2.pos + mThumb.widthBitmap
-                        newX >= mPixelRangeMax -> mThumb.pos = mPixelRangeMax
+                        newX >= pixelRangeMax -> mThumb.pos = pixelRangeMax
                         else -> {
                             checkPositionThumb(mThumb2, mThumb, dx, false)
                             mThumb.pos = mThumb.pos + dx
@@ -156,13 +156,13 @@ class RangeSeekBarView @JvmOverloads constructor(context: Context, attrs: Attrib
 
     private fun checkPositionThumb(mThumbLeft: Thumb, mThumbRight: Thumb, dx: Float, isLeftMove: Boolean) {
         if (isLeftMove && dx < 0) {
-            if (mThumbRight.pos + dx - mThumbLeft.pos > mMaxWidth) {
-                mThumbRight.pos = mThumbLeft.pos + dx + mMaxWidth
+            if (mThumbRight.pos + dx - mThumbLeft.pos > maxWidth) {
+                mThumbRight.pos = mThumbLeft.pos + dx + maxWidth
                 setThumbPos(1, mThumbRight.pos)
             }
         } else if (!isLeftMove && dx > 0) {
-            if (mThumbRight.pos + dx - mThumbLeft.pos > mMaxWidth) {
-                mThumbLeft.pos = mThumbRight.pos + dx - mMaxWidth
+            if (mThumbRight.pos + dx - mThumbLeft.pos > maxWidth) {
+                mThumbLeft.pos = mThumbRight.pos + dx - maxWidth
                 setThumbPos(0, mThumbLeft.pos)
             }
         }
@@ -180,23 +180,23 @@ class RangeSeekBarView @JvmOverloads constructor(context: Context, attrs: Attrib
     }
 
     private fun pixelToScale(index: Int, pixelValue: Float): Float {
-        val scale = pixelValue * 100 / mPixelRangeMax
+        val scale = pixelValue * 100 / pixelRangeMax
         return if (index == 0) {
-            val pxThumb = scale * mThumbWidth / 100
-            scale + pxThumb * 100 / mPixelRangeMax
+            val pxThumb = scale * thumbWidth / 100
+            scale + pxThumb * 100 / pixelRangeMax
         } else {
-            val pxThumb = (100 - scale) * mThumbWidth / 100
-            scale - pxThumb * 100 / mPixelRangeMax
+            val pxThumb = (100 - scale) * thumbWidth / 100
+            scale - pxThumb * 100 / pixelRangeMax
         }
     }
 
     private fun scaleToPixel(index: Int, scaleValue: Float): Float {
-        val px = scaleValue * mPixelRangeMax / 100
+        val px = scaleValue * pixelRangeMax / 100
         return if (index == 0) {
-            val pxThumb = scaleValue * mThumbWidth / 100
+            val pxThumb = scaleValue * thumbWidth / 100
             px - pxThumb
         } else {
-            val pxThumb = (100 - scaleValue) * mThumbWidth / 100
+            val pxThumb = (100 - scaleValue) * thumbWidth / 100
             px + pxThumb
         }
     }
@@ -234,7 +234,7 @@ class RangeSeekBarView @JvmOverloads constructor(context: Context, attrs: Attrib
         var closest = -1
         if (thumbs.isNotEmpty()) {
             for (i in thumbs.indices) {
-                val tcoordinate = thumbs[i].pos + mThumbWidth
+                val tcoordinate = thumbs[i].pos + thumbWidth
                 if (coordinate >= thumbs[i].pos && coordinate <= tcoordinate) {
                     closest = thumbs[i].index
                 }
@@ -248,15 +248,15 @@ class RangeSeekBarView @JvmOverloads constructor(context: Context, attrs: Attrib
             for (th in thumbs) {
                 if (th.index == 0) {
                     val x = th.pos + paddingLeft
-                    if (x > mPixelRangeMin) {
-                        val mRect = Rect(mThumbWidth.toInt(), 0, (x + mThumbWidth).toInt(), mHeightTimeLine)
-                        canvas.drawRect(mRect, mShadow)
+                    if (x > pixelRangeMin) {
+                        val mRect = Rect(thumbWidth.toInt(), 0, (x + thumbWidth).toInt(), heightTimeLine)
+                        canvas.drawRect(mRect, shadow)
                     }
                 } else {
                     val x = th.pos - paddingRight
-                    if (x < mPixelRangeMax) {
-                        val mRect = Rect(x.toInt(), 0, (mViewWidth - mThumbWidth).toInt(), mHeightTimeLine)
-                        canvas.drawRect(mRect, mShadow)
+                    if (x < pixelRangeMax) {
+                        val mRect = Rect(x.toInt(), 0, (viewWidth - thumbWidth).toInt(), heightTimeLine)
+                        canvas.drawRect(mRect, shadow)
                     }
                 }
             }
@@ -276,41 +276,41 @@ class RangeSeekBarView @JvmOverloads constructor(context: Context, attrs: Attrib
     }
 
     fun addOnRangeSeekBarListener(listener: OnRangeSeekBarEvent) {
-        if (mListeners == null) mListeners = ArrayList()
-        mListeners?.add(listener)
+        if (listeners == null) listeners = ArrayList()
+        listeners?.add(listener)
     }
 
     private fun onCreate(rangeSeekBarView: RangeSeekBarView, index: Int, value: Float) {
-        if (mListeners == null) return
+        if (listeners == null) return
         else {
-            for (item in mListeners!!) {
+            for (item in listeners!!) {
                 item.onCreate(rangeSeekBarView, index, value)
             }
         }
     }
 
     private fun onSeek(rangeSeekBarView: RangeSeekBarView, index: Int, value: Float) {
-        if (mListeners == null) return
+        if (listeners == null) return
         else {
-            for (item in mListeners!!) {
+            for (item in listeners!!) {
                 item.onSeek(rangeSeekBarView, index, value)
             }
         }
     }
 
     private fun onSeekStart(rangeSeekBarView: RangeSeekBarView, index: Int, value: Float) {
-        if (mListeners == null) return
+        if (listeners == null) return
         else {
-            for (item in mListeners!!) {
+            for (item in listeners!!) {
                 item.onSeekStart(rangeSeekBarView, index, value)
             }
         }
     }
 
     private fun onSeekStop(rangeSeekBarView: RangeSeekBarView, index: Int, value: Float) {
-        if (mListeners == null) return
+        if (listeners == null) return
         else {
-            for (item in mListeners!!) {
+            for (item in listeners!!) {
                 item.onSeekStop(rangeSeekBarView, index, value)
             }
         }

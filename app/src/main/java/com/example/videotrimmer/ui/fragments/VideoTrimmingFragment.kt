@@ -75,7 +75,4 @@ class VideoTrimmingFragment : Fragment(), OnVideoEditedEvent {
         progressDialog.dismiss()
         showToast("Something went wrong: $message")
     }
-
-
-
 }

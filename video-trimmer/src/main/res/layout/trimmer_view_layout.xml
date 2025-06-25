@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#2f3031"
     android:orientation="vertical"
     android:id="@+id/container">
@@ -47,8 +47,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/rounded_textview_video_trim"
             android:gravity="center_horizontal"
             android:visibility="gone">
@@ -59,10 +59,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:gravity="center"
-                android:paddingStart="@dimen/_10sdp"
-                android:paddingTop="@dimen/_3sdp"
-                android:paddingEnd="@dimen/_10sdp"
-                android:paddingBottom="@dimen/_3sdp"
+                android:paddingStart="10dp"
+                android:paddingTop="3dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="3dp"
                 android:textColor="#efc43b"
                 android:textSize="@dimen/text_small" />
 
@@ -73,24 +73,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/timeFrame"
-            android:paddingTop="@dimen/_5sdp"
-            android:paddingBottom="@dimen/_5sdp">
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
 
             <FrameLayout
                 android:id="@+id/frame_color"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_54sdp"
-                android:background="@android:color/black"
-                android:paddingTop="@dimen/_5sdp"
-                android:paddingBottom="@dimen/_5sdp">
+                android:layout_height="60dp"
+                android:background="@android:color/black">
 
                 <com.redevrx.video_trimmer.view.TimeLineView
                     android:id="@+id/timeLineView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_37sdp"
-                    android:layout_marginEnd="@dimen/_37sdp"
-                    />
+                    android:layout_marginStart="37dp"
+                    android:layout_marginEnd="37dp" />
 
             </FrameLayout>
 
@@ -99,10 +96,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/_12sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_12sdp"
-                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
                 android:max="1000"
                 android:progressDrawable="@android:color/transparent"
                 android:secondaryProgress="0"
@@ -113,14 +108,11 @@
                 android:id="@+id/timeLineBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_12sdp"
-                android:layout_marginEnd="@dimen/_12sdp"
-                android:layout_marginTop="@dimen/_4sdp"
-                android:layout_marginBottom="@dimen/_2sdp" />
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp" />
 
         </RelativeLayout>
 
     </RelativeLayout>
-
 
 </RelativeLayout>
