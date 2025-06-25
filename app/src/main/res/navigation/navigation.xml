@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/videoGallery"
-        android:name="com.example.videotrimmer.ui.fragments.VideoGallery"
+        android:name="com.example.videotrimmer.ui.fragments.VideoGalleryFragment"
         android:label="fragment_video_gallery"
         tools:layout="@layout/fragment_video_gallery" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/videoTrimming"
-        android:name="com.example.videotrimmer.ui.fragments.VideoTrimming"
+        android:name="com.example.videotrimmer.ui.fragments.VideoTrimmingFragment"
         android:label="fragment_video_trimming"
         tools:layout="@layout/fragment_video_trimming" />
 </navigation>

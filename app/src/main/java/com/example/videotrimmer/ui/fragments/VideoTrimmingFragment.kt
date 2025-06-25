@@ -17,7 +17,7 @@ import com.redevrx.video_trimmer.event.OnVideoEditedEvent
 import java.io.File
 
 
-class VideoTrimming : Fragment(), OnVideoEditedEvent {
+class VideoTrimmingFragment : Fragment(), OnVideoEditedEvent {
     private var _binding: FragmentVideoTrimmingBinding? = null
     private val binding get() = _binding!!
     private lateinit var progressDialog: ProgressDialog
@@ -45,7 +45,7 @@ class VideoTrimming : Fragment(), OnVideoEditedEvent {
 
         binding.videoTrimmer.apply {
             setVideoBackgroundColor(resources.getColor(R.color.white))
-            setOnTrimVideoListener(this@VideoTrimming)
+            setOnTrimVideoListener(this@VideoTrimmingFragment)
             setVideoURI(Uri.parse(path!!))
             setDestinationPath(FOLDER_PATH_TRIM_VIDEO_SAVER.absolutePath)
             setVideoInformationVisibility(true)

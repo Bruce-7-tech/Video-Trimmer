@@ -12,7 +12,6 @@ import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.videotrimmer.R
 import com.example.videotrimmer.databinding.FragmentVideoGalleryBinding
@@ -20,7 +19,7 @@ import com.example.videotrimmer.ui.adapter.GalleryAdapter
 import com.example.videotrimmer.ui.data.remote.TrimViewModel
 import com.example.videotrimmer.ui.models.VideoItem
 
-class VideoGallery : Fragment() {
+class VideoGalleryFragment : Fragment() {
     private var _binding: FragmentVideoGalleryBinding? = null
     private val binding get() = _binding!!
     private val viewModel: TrimViewModel by activityViewModels()
