@@ -1,5 +1,6 @@
 package com.example.videotrimmer.ui.fragments
 
+import android.annotation.SuppressLint
 import android.app.ProgressDialog
 import android.net.Uri
 import android.os.Bundle
@@ -7,6 +8,7 @@ import android.os.Environment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.OptIn
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.videotrimmer.R
@@ -15,7 +17,7 @@ import com.example.videotrimmer.ui.extension.addOnBackPressedCallback
 import com.example.videotrimmer.ui.extension.showToast
 import com.redevrx.video_trimmer.event.OnVideoEditedEvent
 import java.io.File
-
+import androidx.core.net.toUri
 
 class VideoTrimmingFragment : Fragment(), OnVideoEditedEvent {
     private var _binding: FragmentVideoTrimmingBinding? = null
@@ -23,9 +25,10 @@ class VideoTrimmingFragment : Fragment(), OnVideoEditedEvent {
     private lateinit var progressDialog: ProgressDialog
 
 
+    @SuppressLint("UnsafeOptInUsageError")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentVideoTrimmingBinding.inflate(inflater, container, false)
         addOnBackPressedCallback { findNavController().popBackStack() }
@@ -35,21 +38,24 @@ class VideoTrimmingFragment : Fragment(), OnVideoEditedEvent {
         progressDialog.setTitle("Crop")
         progressDialog.setCancelable(false)
 
-        val FOLDER_PATH_TRIM_VIDEO_SAVER = File(
-            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
-            "TRIM VIDEOS"
+        val savedFile = File(
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM),
+            "cropped-videos"
         )
 
-        if (!FOLDER_PATH_TRIM_VIDEO_SAVER.exists())
-            FOLDER_PATH_TRIM_VIDEO_SAVER.mkdir()
+//        val savedFile = File(requireContext().filesDir, "cropped-videos")
+
+        if (!savedFile.exists()) {
+            savedFile.mkdir()
+        }
 
         binding.videoTrimmer.apply {
-            setVideoBackgroundColor(resources.getColor(R.color.white))
+            setVideoBackgroundColor(resources.getColor(R.color.black))
             setOnTrimVideoListener(this@VideoTrimmingFragment)
-            setVideoURI(Uri.parse(path!!))
-            setDestinationPath(FOLDER_PATH_TRIM_VIDEO_SAVER.absolutePath)
+            setVideoURI(path!!.toUri())
+            setDestinationPath(savedFile.path)
             setVideoInformationVisibility(true)
-            setMaxDuration(30)
+            setMaxDuration(60)
             setMinDuration(0)
         }
 

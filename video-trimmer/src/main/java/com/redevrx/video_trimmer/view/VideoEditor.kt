@@ -9,6 +9,7 @@ import android.os.Handler
 import android.os.Looper
 import android.os.Message
 import android.util.AttributeSet
+import android.util.Log
 import android.view.GestureDetector
 import android.view.LayoutInflater
 import android.view.MotionEvent
@@ -472,10 +473,14 @@ class VideoEditor @JvmOverloads constructor(
 
         player.addListener(object : Player.Listener {
             override fun onPlayerError(error: PlaybackException) {
-                onVideoEditedListener?.onError("Something went wrong reason : ${error.localizedMessage}")
+                Log.e("VideoEditor", error.localizedMessage, error)
+                onVideoEditedListener?.onError(
+                    "Something went wrong reason : ${error.localizedMessage}"
+                )
             }
 
-            @OptIn(UnstableApi::class) override fun onVideoSizeChanged(videoSize: VideoSize) {
+            @OptIn(UnstableApi::class)
+            override fun onVideoSizeChanged(videoSize: VideoSize) {
                 super.onVideoSizeChanged(videoSize)
                 if (player.videoSize.width > player.videoSize.height) {
                     binding.videoLoader.resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FIXED_WIDTH

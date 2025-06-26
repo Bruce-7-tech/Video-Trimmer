@@ -39,8 +39,7 @@
         android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/background_video_color">
+        android:layout_alignParentBottom="true">
 
         <RelativeLayout
             android:id="@+id/timeFrame"
@@ -79,15 +78,14 @@
             <FrameLayout
                 android:id="@+id/frame_color"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@android:color/black">
+                android:layout_height="60dp">
 
                 <com.redevrx.video_trimmer.view.TimeLineView
                     android:id="@+id/timeLineView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="37dp"
-                    android:layout_marginEnd="37dp" />
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp" />
 
             </FrameLayout>
 
@@ -96,8 +94,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:max="1000"
                 android:progressDrawable="@android:color/transparent"
                 android:secondaryProgress="0"
@@ -107,9 +105,7 @@
             <com.redevrx.video_trimmer.view.RangeSeekBarView
                 android:id="@+id/timeLineBar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp" />
+                android:layout_height="wrap_content" />
 
         </RelativeLayout>
 
