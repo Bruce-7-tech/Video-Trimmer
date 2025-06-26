@@ -20,12 +20,37 @@
           <theme>@style/Theme.VideoTrimmer</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/video-trimmer/src/main/res/drawable/play_button.xml">
+        <config>
+          <theme>@android:style/Theme.Material.Light</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/video-trimmer/src/main/res/drawable/rounded_textview_video_trim.xml">
         <config>
           <theme>@android:style/Theme.Material.Light</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/video-trimmer/src/main/res/drawable/sd.xml">
+        <config>
+          <theme>@android:style/Theme.Material.Light</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/video-trimmer/src/main/res/drawable/seek_gray_line.xml">
+        <config>
+          <theme>@android:style/Theme.Material.Light</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/video-trimmer/src/main/res/drawable/seekbar_bg.xml">
+        <config>
+          <theme>@android:style/Theme.Material.Light</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/video-trimmer/src/main/res/layout/trimmer_view_layout.xml">
+        <config>
+          <theme>@android:style/Theme.Material.Light</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/video-trimmer/src/main/res/layout/view_cropper.xml">
         <config>
           <theme>@android:style/Theme.Material.Light</theme>
         </config>
@@ -37,20 +62,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f773a70-593d-412a-919d-39b24b39e130" name="Changes" comment="api level 8 to 10 bug resolved">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/checksums/checksums.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video-trimmer/src/main/res/drawable/seek_gray_line.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/videotrimmer/ui/fragments/VideoTrimmingFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/videotrimmer/ui/fragments/VideoTrimmingFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/video-trimmer/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/video-trimmer/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/video-trimmer/src/main/java/com/redevrx/video_trimmer/view/RangeSeekBarView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/video-trimmer/src/main/java/com/redevrx/video_trimmer/view/RangeSeekBarView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-trimmer/src/main/java/com/redevrx/video_trimmer/view/TimeLineView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/video-trimmer/src/main/java/com/redevrx/video_trimmer/view/TimeLineView.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/video-trimmer/src/main/java/com/redevrx/video_trimmer/view/VideoEditor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/video-trimmer/src/main/java/com/redevrx/video_trimmer/view/VideoEditor.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/video-trimmer/src/main/res/layout/trimmer_view_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/video-trimmer/src/main/res/layout/trimmer_view_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-trimmer/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/video-trimmer/src/main/res/values/dimens.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +87,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=PhysicalDevice, isTemplate=false, identifier=serial=QV71042B1Y)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=PhysicalDevice, isTemplate=false, identifier=serial=63fcb11a)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -137,40 +164,46 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2WSx6lbFSWCHNnerqctdhlJPxJp" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Android App.app.executor&quot;: &quot;Run&quot;,
-    &quot;DEBUGGABLE_DEVICE&quot;: &quot;sony-j3173-QV71042B1Y&quot;,
-    &quot;DEBUGGABLE_PROCESS&quot;: &quot;com.example.videotrimmer&quot;,
-    &quot;DEBUGGER_ID&quot;: &quot;Auto&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;SHOW_ALL_PROCESSES&quot;: &quot;false&quot;,
-    &quot;android-custom-viewC:/Users/Umair Bashir/AndroidStudioProjects/VideoTrimmer/video-trimmer/src/main/java/com/redevrx/video_trimmer/view/VideoEditor.kt_SELECTED&quot;: &quot;VideoEditor&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Umair Bashir/AndroidStudioProjects/android_video_trimmer/video-trimmer&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Android App.app.executor": "Run",
+    "DEBUGGABLE_DEVICE": "sony-j3173-QV71042B1Y",
+    "DEBUGGABLE_PROCESS": "com.example.videotrimmer",
+    "DEBUGGER_ID": "Auto",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHOW_ALL_PROCESSES": "false",
+    "android-custom-viewC:/Users/Umair Bashir/AndroidStudioProjects/VideoTrimmer/video-trimmer/src/main/java/com/redevrx/video_trimmer/view/VideoEditor.kt_SELECTED": "VideoEditor",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/jackie/AndroidStudioProjects/Video-Trimmer/video-trimmer/src/main/res/drawable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/video-trimmer/src/main/res/drawable" />
       <recent name="C:\Users\Umair Bashir\AndroidStudioProjects\VideoTrimmer\app\src\main\java\com\example\videotrimmer" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="com.example.videotrimmer.ui.models" />
       <recent name="com.example.videotrimmer.activities" />
       <recent name="com.example.videotrimmer.fragments" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.redevrx.video_trimmer.view" />
     </key>
   </component>
   <component name="RunManager">
@@ -309,7 +342,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/video-trimmer/src/main/java/com/redevrx/video_trimmer/view/VideoEditor.kt</url>
-          <line>375</line>
+          <line>376</line>
           <properties>
             <option name="lambda-ordinal" value="-1" />
           </properties>
@@ -317,12 +350,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/video-trimmer/src/main/java/com/redevrx/video_trimmer/view/VideoEditor.kt</url>
-          <line>395</line>
+          <line>396</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/video-trimmer/src/main/java/com/redevrx/video_trimmer/view/VideoEditor.kt</url>
-          <line>400</line>
+          <line>401</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
@@ -333,12 +366,12 @@
       <map>
         <entry key="com.example.videotrimmer">
           <value>
-            <CheckInfo lastCheckTimestamp="1750757396227" />
+            <CheckInfo lastCheckTimestamp="1750915296934" />
           </value>
         </entry>
         <entry key="com.example.videotrimmer.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1750757396258" />
+            <CheckInfo lastCheckTimestamp="1750915296934" />
           </value>
         </entry>
         <entry key="com.redevrx.video_trimmer.test">

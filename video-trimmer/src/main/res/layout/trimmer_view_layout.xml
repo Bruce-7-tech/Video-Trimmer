@@ -72,13 +72,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/timeFrame"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp">
+            android:paddingHorizontal="30dp">
 
             <FrameLayout
                 android:id="@+id/frame_color"
                 android:layout_width="match_parent"
-                android:layout_height="60dp">
+                android:layout_height="wrap_content">
 
                 <com.redevrx.video_trimmer.view.TimeLineView
                     android:id="@+id/timeLineView"
@@ -99,7 +98,7 @@
                 android:max="1000"
                 android:progressDrawable="@android:color/transparent"
                 android:secondaryProgress="0"
-                android:thumb="@drawable/seek_line"
+                android:thumb="@drawable/seek_gray_line"
                 android:visibility="gone" />
 
             <com.redevrx.video_trimmer.view.RangeSeekBarView

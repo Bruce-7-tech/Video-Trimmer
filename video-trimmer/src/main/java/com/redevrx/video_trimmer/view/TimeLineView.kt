@@ -6,6 +6,7 @@ import android.graphics.Canvas
 import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.util.AttributeSet
+import android.util.Log
 import android.util.LongSparseArray
 import android.view.View
 import com.redevrx.video_trimmer.R
@@ -94,6 +95,7 @@ class TimeLineView @JvmOverloads constructor(
     }
 
     private fun returnBitmaps(thumbnailList: LongSparseArray<Bitmap>) {
+        Log.d("TimeLineView", "returnBitmaps() thumbnailList.size: ${thumbnailList.size}")
         UiThreadExecutor.runTask("", {
             bitmapList = thumbnailList
             invalidate()
